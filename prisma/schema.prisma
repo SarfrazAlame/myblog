@@ -60,20 +60,23 @@ model User {
   accounts      Account[]
   sessions      Session[]
 
-  post    Post[]
+  post    Blog[]
   like    Like[]
   comment Comment[]
 
   @@map(name: "users")
 }
 
-model Post {
-  id    String @id @default(uuid())
-  title String
-  body  String
-  imageUrl String
+model Blog {
+  id        String   @id @default(uuid())
+  title     String
+  body      String
+  imageUrl  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  like Like[]
+  like    Like[]
+  comment Comment[]
 
   userId String
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -83,9 +86,11 @@ model Like {
   id     String @id @default(uuid())
   postId String
   userId String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+  post Blog @relation(fields: [postId], references: [id], onDelete: Cascade)
 
   @@index([postId, userId])
 }
@@ -94,8 +99,13 @@ model Comment {
   id       String  @id @default(uuid())
   response String?
 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   userId String
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  blogId String
+  blog   Blog   @relation(fields: [blogId], references: [id])
 
   @@index([userId])
 }

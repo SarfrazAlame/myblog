@@ -12,8 +12,6 @@ import toast from "react-hot-toast";
 import { PostSchema } from "@/types/alltypes";
 import { CreatePost } from "@/lib/action";
 
-
-
 const page = () => {
   const form = useForm<z.infer<typeof PostSchema>>({
     resolver: zodResolver(PostSchema),

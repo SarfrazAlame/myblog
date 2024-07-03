@@ -19,7 +19,7 @@ export const CreatePost = async (value: z.infer<typeof PostSchema>) => {
     const { body, title, imageUrl } = validatedPath.data
 
     try {
-        await prisma.post.create({
+        await prisma.blog.create({
             data: {
                 body,
                 title,
