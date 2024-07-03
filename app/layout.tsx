@@ -27,7 +27,7 @@ export default function RootLayout({
         <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
         <Providers>
           <div className="w-full flex justify-between">
-            <div className="w-1/2 mx-auto">
+            <div className="w-2/3 mx-auto">
               <Header />
               {children}
               <Toaster />

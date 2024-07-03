@@ -23,6 +23,7 @@ export const CreatePost = async (value: z.infer<typeof PostSchema>) => {
             data: {
                 body,
                 title,
+                imageUrl,
                 user: {
                     connect: {
                         id: userId

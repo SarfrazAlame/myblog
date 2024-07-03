@@ -26,10 +26,10 @@ const page = () => {
 
   const handleSubmit = async (values: z.infer<typeof PostSchema>) => {
     try {
-      await CreatePost(values)
-      toast.success("Blog Created")
+      await CreatePost(values);
+      toast.success("Blog Created");
     } catch (error) {
-      toast.error("Something went wrong")
+      toast.error("Something went wrong");
     }
   };
 

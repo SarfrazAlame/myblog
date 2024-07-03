@@ -1,4 +1,3 @@
-"use client";
 import Info from "@/components/Info";
 import React  from "react";
 import Blogs from "./_components/Blogs";

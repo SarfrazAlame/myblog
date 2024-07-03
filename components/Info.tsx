@@ -1,20 +1,20 @@
-"use client";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import React from "react";
 
 const Info = () => {
-  const router = useRouter();
   return (
     <div className="flex justify-between">
       <p className="text-5xl font-extrabold text-gray-800 dark:text-gray-200">
         Sarfraz's <span className="text-pink-600">Blog</span>
       </p>
-      <button
-        className="border px-4 rounded-md bg-blue-500 text-gray-100"
-        onClick={() => router.push("/write")}
-      >
-        write
-      </button>
+      <div className="flex items-center">
+        <Link
+          href={"/write"}
+          className="border px-4 py-2 items-center rounded-md bg-blue-500 text-gray-100"
+        >
+          write
+        </Link>
+      </div>
     </div>
   );
 };
