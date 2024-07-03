@@ -3,15 +3,19 @@ import ThemeSwitch from "./ThemeSwitch";
 import { BsHash, BsMedium, BsTwitter, BsX } from "react-icons/bs";
 import { GithubIcon, Linkedin, LinkedinIcon, X, XIcon } from "lucide-react";
 import { FaHashnode } from "react-icons/fa6";
+import Link from "next/link";
 
 const Header = () => {
   return (
-    <div className="w-full h-20 items-center  bg-zinc-200 dark:bg-inherit flex justify-center">
-      <div className="w-1/2 flex justify-between">
+    <div className="h-28 flex items-center dark:bg-inherit">
+      <div className="flex w-full justify-between">
         <div>
-          <p className="text-xl text-green-700 font-sans dark:text-gray-300">
-            Sarfraz's Blog
-          </p>
+          <Link
+            href={"/"}
+            className="text-2xl text-green-700 font-serif dark:text-gray-300"
+          >
+            SB
+          </Link>
         </div>
         <div className="flex gap-4">
           <XIcon

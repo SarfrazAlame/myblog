@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import { Providers } from "@/components/provider";
-import ThemeSwitch from "@/components/ThemeSwitch";
+import Info from "@/components/Info";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,8 +21,12 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <Providers>
-          <Header />
-          {children}
+          <div className="w-full flex justify-between">
+            <div className="w-1/2 mx-auto">
+              <Header />
+              {children}
+            </div>
+          </div>
         </Providers>
       </body>
     </html>
