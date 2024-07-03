@@ -1,11 +1,19 @@
 import React from "react";
 import ThemeSwitch from "./ThemeSwitch";
-import { BsHash, BsMedium, BsTwitter, BsX } from "react-icons/bs";
-import { GithubIcon, Linkedin, LinkedinIcon, X, XIcon } from "lucide-react";
-import { FaHashnode } from "react-icons/fa6";
+import { BsMedium } from "react-icons/bs";
+import { GithubIcon, LinkedinIcon, XIcon } from "lucide-react";
+import { FaGoogle, FaHashnode } from "react-icons/fa6";
 import Link from "next/link";
 
-const Header = () => {
+import { signIn } from "next-auth/react";
+import Login from "./Login";
+import { getUserId } from "@/lib/userId";
+import { getAuthOptions } from "@/lib/auth";
+import Image from "next/image";
+
+const Header = async () => {
+  const session = await getAuthOptions();
+  const user = await session?.user;
   return (
     <div className="h-28 flex items-center dark:bg-inherit">
       <div className="flex w-full justify-between">
@@ -39,8 +47,25 @@ const Header = () => {
             className="border bg-blue-600 px-1 text-white rounded-md cursor-pointer hover:bg-gray-600"
           />
         </div>
-        <div>
-          <ThemeSwitch />
+        <div className="flex items-center gap-4">
+          <div>
+            <ThemeSwitch />
+          </div>
+          {!user ? (
+            <Login />
+          ) : (
+            <>
+              <div>
+                <Image
+                  src={user.image!}
+                  alt=""
+                  width={45}
+                  height={45}
+                  className="rounded-full"
+                />
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>
