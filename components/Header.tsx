@@ -13,10 +13,10 @@ import Image from "next/image";
 
 const Header = async () => {
   const session = await getAuthOptions();
-  const user =  session?.user;
+  const user = session?.user;
   return (
-    <div className="h-28 flex items-center dark:bg-inherit">
-      <div className="flex w-full justify-between">
+    <div className="h-28 w-full flex items-center dark:bg-inherit">
+      <div className="flex w-full mx-auto items-center justify-around">
         <div>
           <Link
             href={"/"}

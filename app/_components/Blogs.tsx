@@ -5,18 +5,18 @@ import React from "react";
 const Blogs = async () => {
   const blogs = await getBlog();
   return (
-    <div className="my-12 w-2/3 grid grid-cols-2 gap-10">
+    <div className="my-12 w-full grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
       {blogs.map((blog) => (
         <div
           key={blog.id}
-          className="flex flex-col items-center cursor-pointer w-full gap-5  bg-zinc-100 dark:bg-black rounded shadow-lg dark:bg-transparent"
+          className="flex flex-col w-3/4 mx-auto items-center cursor-pointer gap-5 bg-zinc-100 dark:bg-black rounded shadow-lg dark:bg-transparent"
         >
           {blog?.imageUrl && (
             <Image
               src={blog?.imageUrl!}
               alt=""
-              width={700}
-              height={100}
+              width={300}
+              height={300}
               className="rounded w-full h-1/2"
             />
           )}

@@ -26,13 +26,11 @@ export default function RootLayout({
       <body className={inter.className}>
         <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
         <Providers>
-          <div className="w-full flex justify-between">
-            <div className="w-2/3 mx-auto">
+            <div>
               <Header />
               {children}
               <Toaster />
             </div>
-          </div>
         </Providers>
       </body>
     </html>

@@ -34,11 +34,11 @@ const page = () => {
   };
 
   return (
-    <div className="w-full h-full flex justify-center">
+    <div className="w-full">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(handleSubmit)}
-          className="w-full flex flex-col gap-4"
+          className="w-1/2 flex flex-col gap-4 mx-auto"
         >
           <FormField
             control={form.control}

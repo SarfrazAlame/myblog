@@ -3,7 +3,7 @@ import React from "react";
 
 const Info = () => {
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-around">
       <p className="text-5xl font-extrabold text-gray-800 dark:text-gray-200">
         Sarfraz's <span className="text-pink-600">Blog</span>
       </p>
