@@ -6,12 +6,13 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
+import { UploadButton } from "@/utils/uploadthing";
+import Image from "next/image";
+import toast from "react-hot-toast";
+import { PostSchema } from "@/types/alltypes";
+import { CreatePost } from "@/lib/action";
 
-const PostSchema = z.object({
-  title: z.string().min(1),
-  body: z.string().min(1),
-  imageUrl: z.string().optional(),
-});
+
 
 const page = () => {
   const form = useForm<z.infer<typeof PostSchema>>({
@@ -19,14 +20,19 @@ const page = () => {
     defaultValues: {
       title: "",
       body: "",
-      imageUrl: "",
+      imageUrl: undefined,
     },
   });
 
   const imageUrl = form.watch("imageUrl");
 
   const handleSubmit = async (values: z.infer<typeof PostSchema>) => {
-    console.log(values);
+    try {
+      await CreatePost(values)
+      toast.success("Blog Created")
+    } catch (error) {
+      toast.error("Something went wrong")
+    }
   };
 
   return (
@@ -66,7 +72,41 @@ const page = () => {
               </FormItem>
             )}
           />
-          <button type="submit">pusblis</button>
+          {!!imageUrl ? (
+            <>
+              <div>
+                <Image src={imageUrl} alt="" width={300} height={300} />
+              </div>
+            </>
+          ) : (
+            <>
+              <FormField
+                control={form.control}
+                name="imageUrl"
+                render={({ field, fieldState }) => (
+                  <FormControl>
+                    <UploadButton
+                      endpoint="imageUploader"
+                      onClientUploadComplete={(res) => {
+                        form.setValue("imageUrl", res[0].url);
+                      }}
+                      onUploadError={(error: Error) => {
+                        toast.error("Something went wrong");
+                      }}
+                    />
+                  </FormControl>
+                )}
+              />
+            </>
+          )}
+          <div className="flex justify-center">
+            <button
+              type="submit"
+              className="border py-2 px-6 rounded-md  bg-green-600 text-white"
+            >
+              pusblis
+            </button>
+          </div>
         </form>
       </Form>
     </div>

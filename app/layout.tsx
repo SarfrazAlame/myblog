@@ -4,7 +4,11 @@ import "./globals.css";
 import Header from "@/components/Header";
 import { Providers } from "@/components/provider";
 import Info from "@/components/Info";
+import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
+import { extractRouterConfig } from "uploadthing/server";
+import { Toaster } from "react-hot-toast";
 
+import { ourFileRouter } from "@/app/api/uploadthing/core";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -20,11 +24,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
+        <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
         <Providers>
           <div className="w-full flex justify-between">
             <div className="w-1/2 mx-auto">
               <Header />
               {children}
+              <Toaster />
             </div>
           </div>
         </Providers>
