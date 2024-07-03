@@ -60,5 +60,41 @@ model User {
   accounts      Account[]
   sessions      Session[]
 
+  post    Post[]
+  like    Like[]
+  comment Comment[]
+
   @@map(name: "users")
+}
+
+model Post {
+  id    String @id @default(uuid())
+  title String
+  body  String
+
+  like Like[]
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Like {
+  id     String @id @default(uuid())
+  postId String
+  userId String
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@index([postId, userId])
+}
+
+model Comment {
+  id       String  @id @default(uuid())
+  response String?
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
 }
