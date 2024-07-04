@@ -39,3 +39,8 @@ export const CreatePost = async (value: z.infer<typeof PostSchema>) => {
     revalidatePath('/')
     redirect('/')
 }
+
+
+export const DeleteBlog = async(id:string)=>{
+    
+}
