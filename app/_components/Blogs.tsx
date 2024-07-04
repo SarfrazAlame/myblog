@@ -6,23 +6,23 @@ import DeletePost from "./DeletePost";
 const Blogs = async () => {
   const blogs = await getBlog();
   return (
-    <div className="my-12 h-full w-full grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1">
+    <div className="my-12 w-full flex flex-col gap-3">
       {blogs.map((blog) => (
         <div
           key={blog.id}
-          className="flex flex-col w-3/4 mx-auto cursor-pointer gap-5 bg-zinc-100 dark:bg-black rounded-2xl shadow-lg dark:bg-transparent"
+          className="flex flex-col xl:w-1/3 md:w-1/2 sm:w-2/3 mx-auto cursor-pointer gap-5 bg-zinc-100 dark:bg-black rounded-2xl shadow-lg dark:bg-transparent"
         >
           {blog?.imageUrl && (
             <Image
               src={blog?.imageUrl!}
               alt=""
-              width={300}
-              height={300}
-              className="w-full h-1/2 rounded-2xl"
+              width={500}
+              height={500}
+              className="w-full rounded-xl"
             />
           )}
           {blog.title && (
-            <div className="w-full flex flex-col gap-y-3 px-5">
+            <div className="w-full flex flex-col gap-y-3 px-5 ">
               <p className="text-2xl font-bold text-gray-800 dark:text-slate-300">
                 {blog?.title}
               </p>
@@ -50,7 +50,7 @@ const Blogs = async () => {
               </div>
             </div>
             <div>
-                <DeletePost blog={blog}/>
+              <DeletePost blog={blog} />
             </div>
           </div>
         </div>

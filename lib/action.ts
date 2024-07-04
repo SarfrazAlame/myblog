@@ -41,6 +41,16 @@ export const CreatePost = async (value: z.infer<typeof PostSchema>) => {
 }
 
 
-export const DeleteBlog = async(id:string)=>{
-    
+export const DeleteBlog = async (id: string) => {
+    try {
+        await prisma.blog.delete({
+            where: {
+                id
+            }
+        })
+        revalidatePath("/")
+        redirect('/')
+    } catch (error) {
+        console.log(error)
+    }
 }
