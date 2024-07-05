@@ -26,26 +26,36 @@ const Header = async () => {
           </Link>
         </div>
         <div className="flex gap-4">
-          <XIcon
-            size={32}
-            className="border bg-black text-white rounded-md cursor-pointer hover:bg-gray-600"
-          />
-          <GithubIcon
-            size={32}
-            className="border bg-black text-white rounded-md cursor-pointer hover:bg-gray-600"
-          />
-          <BsMedium
-            size={32}
-            className="text-2xl px-1 border bg-black text-white rounded-md cursor-pointer hover:bg-gray-600"
-          />
-          <FaHashnode
-            size={32}
-            className="text-2xl px-1 border bg-blue-800 text-white rounded-md cursor-pointer hover:bg-gray-600"
-          />
-          <LinkedinIcon
-            size={32}
-            className="border bg-blue-600 px-1 text-white rounded-md cursor-pointer hover:bg-gray-600"
-          />
+          <Link href={"https://x.com/sarfrazk7858"}>
+            <XIcon
+              size={32}
+              className="border bg-black text-white rounded-md cursor-pointer hover:bg-gray-600"
+            />
+          </Link>
+          <Link href={"https://github.com/SarfrazAlame"}>
+            <GithubIcon
+              size={32}
+              className="border bg-black text-white rounded-md cursor-pointer hover:bg-gray-600"
+            />
+          </Link>
+          <Link href={"https://medium.com/@sarfrazk7858"}>
+            <BsMedium
+              size={32}
+              className="text-2xl px-1 border bg-black text-white rounded-md cursor-pointer hover:bg-gray-600"
+            />
+          </Link>
+          <Link href={"https://hashnode.com/@MohammedSarfraz"}>
+            <FaHashnode
+              size={32}
+              className="text-2xl px-1 border bg-blue-800 text-white rounded-md cursor-pointer hover:bg-gray-600"
+            />
+          </Link>
+          <Link href={"https://www.linkedin.com/in/sarfraz-alam-25a262236/"}>
+            <LinkedinIcon
+              size={32}
+              className="border bg-blue-600 px-1 text-white rounded-md cursor-pointer hover:bg-gray-600"
+            />
+          </Link>
         </div>
         <div className="flex items-center gap-4">
           <div>

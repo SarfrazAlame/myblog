@@ -29,3 +29,19 @@ export const getBlog = async () => {
         throw new Error("failed to post")
     }
 }
+
+export const getBlogById = async (id: string) => {
+    try {
+        const blog = await prisma.blog.findUnique({
+            where: {
+                id
+            },
+            include:{
+                user:true
+            }
+        })
+        return blog
+    } catch (error) {
+        console.log(error)
+    }
+}
