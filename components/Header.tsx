@@ -14,6 +14,7 @@ import Image from "next/image";
 const Header = async () => {
   const session = await getAuthOptions();
   const user = session?.user;
+  const text = 'Login'
   return (
     <div className="h-28 w-full flex items-center dark:bg-inherit">
       <div className="flex w-full mx-auto items-center justify-around">
@@ -62,7 +63,7 @@ const Header = async () => {
             <ThemeSwitch />
           </div>
           {!user ? (
-            <Login />
+            <Login text={text}/>
           ) : (
             <>
               <div>

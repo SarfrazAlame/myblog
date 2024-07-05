@@ -12,12 +12,12 @@ import ThemeSwitch from "./ThemeSwitch";
 import { signIn } from "next-auth/react";
 import { FaGoogle } from "react-icons/fa6";
 
-const Login = () => {
+const Login = ({text}:{text:string}) => {
   return (
     <div className="flex items-center gap-4">
       <Dialog>
         <DialogTrigger className="border px-3 py-2 rounded-md text-gray-100 bg-gray-800 dark:text-gray-700 dark:bg-gray-100">
-          Login
+          {text}
         </DialogTrigger>
         <DialogContent>
           <DialogHeader>

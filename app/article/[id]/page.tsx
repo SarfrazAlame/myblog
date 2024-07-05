@@ -1,3 +1,4 @@
+import Intraction from "@/app/_components/Intraction";
 import Timestamp from "@/components/Timestamp";
 import { getBlogById } from "@/lib/data";
 import Image from "next/image";
@@ -9,6 +10,9 @@ const page = async ({ params: { id } }: { params: { id: string } }) => {
   return (
     <div className="w-full flex flex-col gap-y-4">
       <div className="w-1/3 mx-auto flex flex-col gap-y-4">
+      <div>
+        <Intraction/>
+      </div>
         <div className="flex justify-between">
           <div className="flex gap-2">
             <div>
@@ -51,7 +55,7 @@ const page = async ({ params: { id } }: { params: { id: string } }) => {
                 alt=""
                 width={500}
                 height={500}
-                className="w-full"
+                className="w-full rounded"
               />
             )}
           </div>
