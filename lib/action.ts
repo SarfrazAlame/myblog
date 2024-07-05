@@ -83,3 +83,18 @@ export const fetchLike = async (id: string,userId:string) => {
         console.log(error)
     }
 }
+
+export const CommentBlog = async(id:string, userId:string, response:string)=>{
+    try {
+        await prisma.comment.create({
+            data:{
+                blogId:id,
+                userId,
+                response
+            }
+        })
+        revalidatePath('/article')
+    } catch (error) {
+        console.log(error)
+    }
+}

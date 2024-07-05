@@ -1,6 +1,7 @@
 import Intraction from "@/app/_components/Intraction";
 import Timestamp from "@/components/Timestamp";
 import { fetchLike } from "@/lib/action";
+import { getAuthOptions } from "@/lib/auth";
 import { getBlogById } from "@/lib/data";
 import { getUserId } from "@/lib/userId";
 import Image from "next/image";
@@ -10,13 +11,15 @@ const page = async ({ params: { id } }: { params: { id: string } }) => {
   const userId = await getUserId();
   const blog = await getBlogById(id);
   const like = await fetchLike(id, userId!);
+  const session = await getAuthOptions()
+  const user = session?.user
 
   return (
     <div className="w-full flex flex-col gap-y-4">
       <div className="w-1/3 mx-auto flex flex-col gap-y-4">
         <div>
           {/* @ts-ignore */}
-            <Intraction blog={blog} like={like} userId={userId!} />
+          <Intraction blog={blog} like={like} userId={userId!} user={user} />
         </div>
         <div className="flex justify-between">
           <div className="flex gap-2">

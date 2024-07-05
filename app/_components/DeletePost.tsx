@@ -20,7 +20,7 @@ const DeletePost = ({ blog }: { blog: BlogWithAll }) => {
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuItem
-            className="text-sm text-red-600"
+            className="text-sm text-red-600 cursor-pointer"
             onClick={() => DeleteBlog(blog.id)}
           >
             delete blog
