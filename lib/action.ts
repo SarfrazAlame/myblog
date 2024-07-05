@@ -54,3 +54,32 @@ export const DeleteBlog = async (id: string) => {
         console.log(error)
     }
 }
+
+export const LikePost = async (id: string, userId:string) => {
+
+    try {
+        await prisma.like.create({
+            data: {
+                postId: id,
+                userId
+            }
+        })
+        revalidatePath('/article')
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const fetchLike = async (id: string,userId:string) => {
+    try {
+        const like = await prisma.like.findFirst({
+            where: {
+                postId: id,
+                userId,
+            }
+        })
+        return like
+    } catch (error) {
+        console.log(error)
+    }
+}

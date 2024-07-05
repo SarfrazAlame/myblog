@@ -22,14 +22,14 @@ export const getBlog = async () => {
                 },
                 user: true,
             },
-            orderBy:{
-            createdAt:'desc'
+            orderBy: {
+                createdAt: 'desc'
             }
         })
         return blogs
     } catch (error) {
         console.log(error)
-        throw new Error("failed to post")
+        throw new Error("failed to post" + error)
     }
 }
 
@@ -39,8 +39,21 @@ export const getBlogById = async (id: string) => {
             where: {
                 id
             },
-            include:{
-                user:true
+            include: {
+                comment: {
+                    include: {
+                        user: true
+                    },
+                    orderBy: {
+                        createdAt: 'desc'
+                    }
+                },
+                like: {
+                    include: {
+                        user: true
+                    }
+                },
+                user: true
             }
         })
         return blog
