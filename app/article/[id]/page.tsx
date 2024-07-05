@@ -42,7 +42,7 @@ const page = async ({ params: { id } }: { params: { id: string } }) => {
             {blog?.title}
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300">
-            {blog?.body.slice(0, 50)}
+            {blog?.body.slice(0, 60)}
           </p>
           <div>
             {blog?.imageUrl && (
@@ -54,6 +54,10 @@ const page = async ({ params: { id } }: { params: { id: string } }) => {
                 className="w-full"
               />
             )}
+          </div>
+
+          <div>
+            <p className="whitespace-pre-wrap">{blog?.body}</p>
           </div>
         </div>
       </div>

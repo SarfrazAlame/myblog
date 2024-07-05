@@ -25,7 +25,7 @@ const Blogs = async () => {
             )}
             {blog.title && (
               <div className="w-full flex flex-col gap-y-3 px-5 ">
-                <p className="text-2xl font-bold text-gray-800 dark:text-slate-300">
+                <p className="text-2xl font-bold text-gray-800 dark:text-slate-300 ">
                   {blog?.title}
                 </p>
                 <p className=" text-slate-800 dark:text-slate-300">

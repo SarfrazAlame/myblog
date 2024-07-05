@@ -62,10 +62,10 @@ const page = () => {
               <FormItem>
                 <FormControl>
                   <Textarea
-                    className="w-full h-44 border-none text-xl outline-none focus-visible:ring-1 focus-visible:ring-blue-400"
+                    className="w-full h-44 border-none text-xl outline-none focus-visible:ring-1 focus-visible:ring-blue-400 whitespace-pre-wrap"
                     placeholder="Tell your story..."
                     {...field}
-                  />
+                  /> 
                 </FormControl>
               </FormItem>
             )}

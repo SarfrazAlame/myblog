@@ -20,7 +20,10 @@ export const getBlog = async () => {
                         user: true
                     }
                 },
-                user: true
+                user: true,
+            },
+            orderBy:{
+            createdAt:'desc'
             }
         })
         return blogs
