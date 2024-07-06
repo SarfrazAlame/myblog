@@ -10,6 +10,7 @@ import Login from "./Login";
 import { getUserId } from "@/lib/userId";
 import { getAuthOptions } from "@/lib/auth";
 import Image from "next/image";
+import UserProfile from "./UserProfile";
 
 const Header = async () => {
   const session = await getAuthOptions();
@@ -66,15 +67,7 @@ const Header = async () => {
             <Login text={text}/>
           ) : (
             <>
-              <div>
-                <Image
-                  src={user.image!}
-                  alt=""
-                  width={45}
-                  height={45}
-                  className="rounded-full"
-                />
-              </div>
+             <UserProfile user={user}/>
             </>
           )}
         </div>
