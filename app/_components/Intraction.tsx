@@ -113,7 +113,7 @@ const Intraction = ({
 
                 <div>
                   {blog.comment.map((com) => (
-                    <div className="flex flex-col border p-2 my-2 rounded-lg">
+                    <div key={com.id} className="flex flex-col border p-2 my-2 rounded-lg">
                       <div className="flex items-center gap-2">
                         <Image
                           src={com.user.image!}

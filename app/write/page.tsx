@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React  from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
@@ -12,7 +12,7 @@ import toast from "react-hot-toast";
 import { PostSchema } from "@/types/alltypes";
 import { CreatePost } from "@/lib/action";
 
-const page = () => {
+const WritePage = () => {
   const form = useForm<z.infer<typeof PostSchema>>({
     resolver: zodResolver(PostSchema),
     defaultValues: {
@@ -111,4 +111,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default WritePage;
