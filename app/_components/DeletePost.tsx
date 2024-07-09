@@ -6,12 +6,17 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { DeleteBlog } from "@/lib/action";
 import { BlogWithAll } from "@/types/schema";
-import { User } from "@prisma/client";
 import { DropdownMenuItem } from "@radix-ui/react-dropdown-menu";
 import React from "react";
 import { BsThreeDots } from "react-icons/bs";
 
-const DeletePost = ({ blog }: { blog: BlogWithAll }) => {
+const DeletePost = ({
+  blog,
+  userId,
+}: {
+  blog: BlogWithAll;
+  userId: string;
+}) => {
   return (
     <div>
       <DropdownMenu>
@@ -19,12 +24,16 @@ const DeletePost = ({ blog }: { blog: BlogWithAll }) => {
           <BsThreeDots />
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-          <DropdownMenuItem
-            className="text-sm text-red-600 cursor-pointer"
-            onClick={() => DeleteBlog(blog.id)}
-          >
-            delete blog
-          </DropdownMenuItem>
+          {blog.user.id === userId ? (
+            <DropdownMenuItem
+              className="text-sm text-red-600 cursor-pointer"
+              onClick={() => DeleteBlog(blog.id)}
+            >
+              delete blog
+            </DropdownMenuItem>
+          ) : (
+            "node"
+          )}
         </DropdownMenuContent>
       </DropdownMenu>
     </div>

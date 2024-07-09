@@ -83,9 +83,9 @@ model Blog {
 }
 
 model Like {
-  id     String @id @default(uuid())
-  postId String
-  userId String
+  id        String   @id @default(uuid())
+  postId    String
+  userId    String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -96,13 +96,13 @@ model Like {
 }
 
 model Comment {
-  id       String  @id @default(uuid())
+  id       String @id @default(uuid())
   response String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  userId String
-  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   blogId String
   blog   Blog   @relation(fields: [blogId], references: [id])

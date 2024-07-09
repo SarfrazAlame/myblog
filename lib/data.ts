@@ -33,6 +33,15 @@ export const getBlog = async () => {
     }
 }
 
+export const getUsers = async()=>{
+    try {
+        const users = await prisma.user.findMany({})
+        return users.map((u=>u.id))
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 export const getBlogById = async (id: string) => {
     try {
         const blog = await prisma.blog.findUnique({

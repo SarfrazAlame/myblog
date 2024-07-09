@@ -3,9 +3,11 @@ import Image from "next/image";
 import React from "react";
 import DeletePost from "./DeletePost";
 import Link from "next/link";
+import { getUserId } from "@/lib/userId";
 
 const Blogs = async () => {
   const blogs = await getBlog();
+  const userId = await getUserId()
   return (
     <div className="my-12 w-full flex flex-col gap-3">
       {blogs.map((blog) => (
@@ -52,9 +54,9 @@ const Blogs = async () => {
                 <p className="font-bold text-gray-700">{blog.user.name}</p>
               </div>
             </div>
-            <div className="mr-5">
-              <DeletePost blog={blog} />
-            </div>
+            {/* <div className="mr-5">
+              {userId && <DeletePost blog={blog} userId={userId} />}
+            </div> */}
           </div>
         </div>
       ))}
