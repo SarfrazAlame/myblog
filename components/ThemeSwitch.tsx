@@ -25,10 +25,22 @@ export default function ThemeSwitch() {
     );
 
   if (resolvedTheme === "dark") {
-    return <FiSun size={32} onClick={() => setTheme("light")} className="border border-gray-500 px-1 rounded-lg cursor-pointer" />;
+    return (
+      <FiSun
+        size={32}
+        onClick={() => setTheme("light")}
+        className="border border-gray-500 px-1 rounded-lg cursor-pointer"
+      />
+    );
   }
 
   if (resolvedTheme === "light") {
-    return <FiMoon size={32} onClick={() => setTheme("dark")}  className="border border-gray-500 px-1 rounded-lg cursor-pointer"/>;
+    return (
+      <FiMoon
+        size={32}
+        onClick={() => setTheme("dark")}
+        className="border border-gray-500 px-1 rounded-lg cursor-pointer"
+      />
+    );
   }
 }
