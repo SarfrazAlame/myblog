@@ -16,7 +16,7 @@ const page = async ({ params: { id } }: { params: { id: string } }) => {
 
   return (
     <div className="w-full flex flex-col gap-y-4">
-      <div className="w-1/3 mx-auto flex flex-col gap-y-4">
+      <div className="md:w-1/3 w-full mx-auto flex flex-col gap-y-4">
         <div>
           {/* @ts-ignore */}
           <Intraction blog={blog} like={like} userId={userId!} user={user} />

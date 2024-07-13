@@ -7,7 +7,7 @@ import { getUserId } from "@/lib/userId";
 
 const Blogs = async () => {
   const blogs = await getBlog();
-  const userId = await getUserId()
+  const userId = await getUserId();
   return (
     <div className="my-12 w-full flex flex-col gap-3">
       {blogs.map((blog) => (
